@@ -1,8 +1,11 @@
 package org.selenium.basic;
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
 public class Commands {
 
 	public void verifySwagLabsLogin() {
@@ -86,6 +89,26 @@ public class Commands {
 		System.out.println("Displayed :"+isDisplayed);
 		driver.close();
 	}
+	public void verifyValuesFromDropdown() {
+		WebDriver driver= new ChromeDriver();
+		driver.get("https://demo.guru99.com/test/newtours/register.php");
+		driver.manage().window().maximize();
+		WebElement countryDropdown=driver.findElement(By.xpath("//select[@name='country']"));
+		Select select= new Select(countryDropdown);
+		//select.selectByVisibleText("ANGOLA");
+		//select.selectByIndex(3);
+		select.selectByValue("CANADA");
+		WebElement getCountryName= select.getFirstSelectedOption();
+		System.out.println(getCountryName.getText());
+		System.out.println("No:of Elements : "+getOptionsCount(countryDropdown));
+		driver.close();
+	}
+	public int getOptionsCount(WebElement countryDropdown) {
+		Select select= new Select(countryDropdown);
+		List<WebElement> lstSelect= select.getOptions();
+		return lstSelect.size();
+		
+	}
 	public static void main(String[] args) {
 		Commands obj=new Commands();
 		//obj.verifyDemowebshopRegister();
@@ -93,7 +116,8 @@ public class Commands {
 		//obj.verifySwagLabsLogin();
 		//obj.verifyDemowebshopIsSelected();
 		//obj.verifyDemowebshopIsEnabled();
-		obj.verifyDemowebshopIsDisplayed();
+		//obj.verifyDemowebshopIsDisplayed();
+		obj.verifyValuesFromDropdown();
 	}
 
 }
