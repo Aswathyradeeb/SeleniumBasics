@@ -83,7 +83,7 @@ public class Assignments {
 		obj.verifySingleCheckbox();
 		obj.driver.findElement(By.xpath("//a[@href=\"radio-button-demo.php\"]")).click();
 		obj.verifyRadioButton();
-		//obj.driver.close();
+		obj.driver.close();
 	}
 
 }
