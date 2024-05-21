@@ -48,10 +48,20 @@ public class AlertPractice {
 		String alertMsg=alert.getText();
 		System.out.println("Message in Alert : "+alertMsg);
 		alert.dismiss();
-		//WebElement spanField= driver.findElement(By.xpath("//span[@id='promptResult']"));
-		//String msg= spanField.getText();
-		//System.out.println("Message : "+msg);
+		WebElement spanField= driver.findElement(By.xpath("//span[@id='promptResult']"));
+		String msg= spanField.getText();
+		System.out.println("Message : "+msg);
 		driver.close();	
+	}
+	
+	public void verifyDeleteCustomerAlert() {
+		WebDriver driver= new ChromeDriver();
+		driver.get("https://demo.guru99.com/test/delete_customer.php");
+		driver.findElement(By.xpath("//input[@name='cusid']")).sendKeys("Test");
+		driver.findElement(By.xpath("//input[@name='submit']")).click();
+		Alert alert= driver.switchTo().alert();
+		alert.accept();
+		alert.accept();
 	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -59,7 +69,8 @@ public class AlertPractice {
 		//obj.verifyAlert();
 		//obj.verifyTimerAlert();
 		//obj.verifyConfirmationAlert();
-		obj.verifyPromptAlert();
+		//obj.verifyPromptAlert();
+		obj.verifyDeleteCustomerAlert();
 		
 	}
 
