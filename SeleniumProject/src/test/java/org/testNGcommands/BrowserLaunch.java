@@ -30,6 +30,7 @@ else
 	throw new RuntimeException("INVALID BROWSER");
 }
 driver.manage().window().maximize();
+driver.manage().deleteAllCookies();
 }
 	@BeforeMethod
 	public void setUp()
