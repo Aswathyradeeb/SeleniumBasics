@@ -16,7 +16,7 @@ public class Commands extends BrowserLaunch {
 	    driver.get("https://demowebshop.tricentis.com/");
 		String actualTitle=driver.getTitle();
 		System.out.println("WEB PAGE TITLE :"+actualTitle);
-		String ExpectedTitle="Demo Web Shop";
+		String ExpectedTitle="Demo Web Shopzz";
 		Assert.assertEquals(actualTitle, ExpectedTitle,"Failed : Title Mismatch");
 		
  }

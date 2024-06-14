@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="org.testNGcommands.WebTables">
+      <class name="test.HomePageTest">
         <methods>
           <include name="closeBrowser"/>
-          <include name="setUp"/>
-          <include name="verifyDynamicWebTable"/>
+          <include name="VerifyCommunityPoolSelection"/>
+          <include name="setup"/>
         </methods>
-      </class> <!-- org.testNGcommands.WebTables -->
+      </class> <!-- test.HomePageTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
